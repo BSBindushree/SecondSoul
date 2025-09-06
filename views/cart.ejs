@@ -1,0 +1,17 @@
+<% layout('layout') -%>
+<h2>Your Cart</h2>
+<% if (items.length === 0) { %>
+  <p>Cart is empty.</p>
+<% } else { %>
+  <ul>
+    <% items.forEach(it => { %>
+      <li>
+        <img src="<%= it.product.image %>" width="60"/>
+        <%= it.product.title %> — Qty: <%= it.quantity %> — ₹<%= it.product.price %>
+      </li>
+    <% }) %>
+  </ul>
+  <form action="/cart/checkout" method="post">
+    <button type="submit">Checkout</button>
+  </form>
+<% } %>

@@ -1,0 +1,21 @@
+<% layout('layout') -%>
+<h2>Your Dashboard</h2>
+<p><a href="/products/create">Create New Product</a></p>
+
+<h3>Your Listings</h3>
+<% if (products.length === 0) { %>
+  <p>You haven’t listed any products yet.</p>
+<% } else { %>
+  <ul>
+    <% products.forEach(p => { %>
+      <li>
+        <img src="<%= p.image || '/images/placeholder.png' %>" width="60"/>
+        <strong><%= p.title %></strong> — ₹<%= p.price %>
+        <a href="/products/<%= p.id %>/edit">Edit</a>
+        <form action="/products/<%= p.id %>/delete" method="post" style="display:inline;">
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+<% } %>

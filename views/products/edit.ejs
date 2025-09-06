@@ -1,0 +1,16 @@
+<% layout('layout') -%>
+<h2>Edit Product</h2>
+<form action="/products/<%= product.id %>/edit" method="post" enctype="multipart/form-data">
+  <label>Title <input name="title" value="<%= product.title %>" required></label><br>
+  <label>Description <textarea name="description"><%= product.description %></textarea></label><br>
+  <label>Category
+    <select name="category" required>
+      <% categories.forEach(c => { %>
+        <option value="<%= c %>" <%= c===product.category ? 'selected':'' %>><%= c %></option>
+      <% }) %>
+    </select>
+  </label><br>
+  <label>Price <input type="number" name="price" step="0.01" value="<%= product.price %>" required></label><br>
+  <label>Image <input type="file" name="image" accept="image/*"></label><br>
+  <button type="submit">Update</button>
+</form>

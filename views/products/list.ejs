@@ -1,0 +1,25 @@
+<% layout('layout') -%>
+<h2>Browse Products</h2>
+
+<form method="get" action="/products">
+  <input name="q" placeholder="Search..." value="<%= q %>"/>
+  <select name="category">
+    <option value="">All</option>
+    <% categories.forEach(c => { %>
+      <option value="<%= c %>" <%= c===category ? 'selected':'' %>><%= c %></option>
+    <% }) %>
+  </select>
+  <button type="submit">Search</button>
+</form>
+
+<div class="grid">
+  <% products.forEach(p => { %>
+    <div class="card">
+      <a href="/products/<%= p.id %>">
+        <img src="<%= p.image || '/images/placeholder.png' %>" width="150"/>
+        <h3><%= p.title %></h3>
+      </a>
+      <p>₹<%= p.price %></p>
+    </div>
+  <% }) %>
+</div>

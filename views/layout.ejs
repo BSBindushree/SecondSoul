@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SecondSoul</title>
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">Home</a> |
+      <a href="/products">Browse</a> |
+      <% if (!currentUser) { %>
+        <a href="/auth/login">Login</a> | <a href="/auth/register">Register</a>
+      <% } else { %>
+        <a href="/products/my">Dashboard</a> |
+        <a href="/cart">Cart</a> |
+        <a href="/purchases">Purchases</a> |
+        <span>Welcome, <%= currentUser.username %></span> |
+        <a href="/auth/logout">Logout</a>
+      <% } %>
+    </nav>
+  </header>
+
+  <main>
+    <% if (typeof error !== "undefined" && error) { %>
+      <div class="error"><%= error %></div>
+    <% } %>
+    <%- body %>
+  </main>
+
+  <footer>
+    <small>© SecondSoul Prototype</small>
+  </footer>
+</body>
+</html>
