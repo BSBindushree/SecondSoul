@@ -1,3 +1,5 @@
+const db = require('../config/db'); // This connects to MySQL
+
 exports.list = (req, res) => res.send('All Products');
 exports.showCreate = (req, res) => res.send('Create Product page');
 exports.create = (req, res) => res.send('Product Created');

@@ -1,3 +1,5 @@
+const db = require('../config/db'); // This connects to MySQL
+
 exports.showRegister = (req, res) => res.send('Register page');
 exports.register = (req, res) => res.send('Register POST');
 exports.showLogin = (req, res) => res.send('Login page');
