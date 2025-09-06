@@ -1,4 +1,8 @@
 # SecondSoul : EcoFinds - Sustainable Second-Hand Marketplace
-Every product gets a second soul, a new journey.
-SecondSoul is a web-based marketplace where users can buy and sell pre-loved items in a sustainable way.
-This prototype focuses on user authentication, product listings, and a cart system to provide a sustainable approach to waste. 
+SecondSoul is a web-based marketplace that allows users to buy and sell pre-loved items, promoting sustainability and reducing waste. The platform focuses on:
+
+-User Authentication: Secure sign-up and login for buyers and sellers.
+-Product Listings: Easy listing and browsing of second-hand items.
+-Cart System: Simple, intuitive shopping experience for purchasing pre-loved goods.
+
+By enabling a second journey for products, SecondSoul encourages responsible consumption and a more sustainable lifestyle.
