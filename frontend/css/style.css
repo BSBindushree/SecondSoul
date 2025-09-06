@@ -1,0 +1,254 @@
+/*  
+*{box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f5f6fa;color:#222}
+.site-header{background:#2c7a5b;color:white;padding:10px 16px;display:flex;align-items:center;justify-content:space-between}
+.site-header h1{margin:0;font-size:1.2rem}
+.site-header nav a{color:#fff;margin-left:12px;text-decoration:none}
+.container{padding:16px;max-width:1000px;margin:0 auto}
+.controls{display:flex;gap:8px;align-items:center;margin-bottom:12px}
+input,textarea,select{padding:8px;border:1px solid #ccc;border-radius:4px;width:100%}
+.btn{display:inline-block;padding:8px 12px;border-radius:6px;border:none;background:#ddd;color:#111;text-decoration:none;cursor:pointer}
+.btn.primary{background:#2c7a5b;color:#fff}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.card{background:#fff;padding:10px;border-radius:6px;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+.card img{width:100%;height:140px;object-fit:cover;border-radius:4px;margin-bottom:8px}
+.product-detail{background:#fff;padding:12px;border-radius:8px}
+.links{display:flex;gap:8px;margin-top:12px}  */
+/* 🌿 Root Variables for Theming */
+/* 🌿 Theme Variables */
+/* 🌿 Theme Variables */
+/* 🌿 Theme Variables */
+/* 🌿 Theme Variables */
+/* 🌿 Theme Variables */
+/* 🌿 Theme Variables */
+/* 🌿 Theme Variables */
+:root {
+  --primary: #2c7a5b;
+  --secondary: #3fa87d;
+  --accent: #f0db4f;
+  --text: #222;
+  --muted: #666;
+  --bg-light: #f5f6fa;
+  --bg-lighter: #e9f7f1;
+  --card-bg: #fff;
+  --shadow: rgba(0, 0, 0, 0.08);
+  --radius: 14px;
+  --transition: 0.3s ease;
+  --max-width: 1200px;
+}
+
+/* 🧱 Base Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, var(--bg-light), var(--bg-lighter));
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* 🧭 Header */
+.site-header {
+  background: linear-gradient(90deg, var(--primary), #1e5b42);
+  color: white;
+  padding: 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+
+.site-header h1 {
+  font-size: 2rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.site-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.site-header nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition), text-shadow var(--transition);
+}
+
+.site-header nav a:hover {
+  color: var(--accent);
+  text-shadow: 0 0 6px rgba(240, 219, 79, 0.6);
+}
+
+/* 📦 Container */
+.container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 40px 24px;
+}
+
+/* 🎛️ Controls */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 40px;
+  align-items: center;
+  background: #ffffffcc;
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.controls input,
+.controls select {
+  flex: 1 1 220px;
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  background-color: #fff;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.controls input:focus,
+.controls select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 6px rgba(44, 122, 91, 0.3);
+  outline: none;
+}
+
+.controls button,
+.controls .btn {
+  padding: 14px 20px;
+  border-radius: var(--radius);
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition);
+}
+
+.controls button {
+  background: #ddd;
+  color: #111;
+}
+
+.controls button:hover {
+  background: #bbb;
+  transform: translateY(-2px);
+}
+
+.btn.primary {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: white;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+}
+
+.btn.primary:hover {
+  background: linear-gradient(90deg, var(--secondary), var(--primary));
+}
+
+/* 🛍️ Product Grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+/* 📇 Product Card */
+.product-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  transition: transform var(--transition);
+}
+
+.product-card img:hover {
+  transform: scale(1.05);
+}
+
+.product-card h3 {
+  font-size: 1.3rem;
+  color: var(--primary);
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+.product-card p {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.product-card button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.product-card button:hover {
+  background: var(--secondary);
+}
+
+/* ✨ Responsive */
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .site-header nav {
+    margin-top: 12px;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .controls input,
+  .controls select,
+  .controls button,
+  .controls .btn {
+    width: 100%;
+  }
+}
+
+/* ✨ Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

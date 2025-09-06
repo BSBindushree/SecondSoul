@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>EcoFinds - Browse</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="index">
+<header class="site-header">
+  <h1>EcoFinds</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="controls">
+    <input id="search" placeholder="Search by title" />
+    <select id="category">
+      <option value="">All Categories</option>
+      <option>Electronics</option>
+      <option>Furniture</option>
+      <option>Books</option>
+      <option>Fashion</option>
+    </select>
+    <button id="searchBtn">Search</button>
+    
+    <a class="btn primary" href="addProduct.html">+ Add Product</a>
+  </section>
+
+  <section id="products" class="products-grid"></section>
+</main>
+
+<script>
+// Fetch and display products
+async function loadProducts() {
+    const res = await fetch('http://localhost:5000/api/products');
+    const products = await res.json();
+    const container = document.getElementById('products');
+    container.innerHTML = '';
+
+    products.forEach(product => {
+        const card = document.createElement('div');
+        card.classList.add('product-card');
+        card.innerHTML = `
+            <img src="${product.image || 'images/placeholder.png'}" alt="${product.title}" width="150">
+            <h3>${product.title}</h3>
+            <p>₹${product.price}</p>
+            <button onclick="viewProduct(${product.id})">View</button>
+        `;
+        container.appendChild(card);
+    });
+}
+
+// View product details
+function viewProduct(id) {
+    window.location.href = `productDetail.html?id=${id}`;
+}
+
+// Search & Filter
+document.getElementById('searchBtn').addEventListener('click', async () => {
+    const keyword = document.getElementById('search').value.toLowerCase();
+    const category = document.getElementById('category').value;
+    const res = await fetch('http://localhost:5000/api/products');
+    const products = await res.json();
+
+    const filtered = products.filter(p => 
+        p.title.toLowerCase().includes(keyword) &&
+        (category === '' || p.category === category)
+    );
+
+    const container = document.getElementById('products');
+    container.innerHTML = '';
+    filtered.forEach(product => {
+        const card = document.createElement('div');
+        card.classList.add('product-card');
+        card.innerHTML = `
+            <img src="${product.image || 'images/placeholder.png'}" alt="${product.title}" width="150">
+            <h3>${product.title}</h3>
+            <p>₹${product.price}</p>
+            <button onclick="viewProduct(${product.id})">View</button>
+        `;
+        container.appendChild(card);
+    });
+});
+
+// Load products on page load
+loadProducts();
+</script>
+</body>
+</html>
