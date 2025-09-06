@@ -1,0 +1,133 @@
+/* ---------- GLOBAL STYLES ---------- */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  background: linear-gradient(to bottom right, #e6f4ee, #f0f4f3);
+  color: #222;
+}
+
+/* ---------- HEADER ---------- */
+.site-header {
+  background: linear-gradient(90deg, #2c7a5b, #1e5b42);
+  color: #fff;
+  padding: 20px 28px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* ---------- MAIN CONTAINER ---------- */
+.container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 32px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  animation: fadeIn 0.6s ease;
+}
+
+.container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  color: #2c7a5b;
+  text-align: center;
+  border-bottom: 2px solid #2c7a5b;
+  padding-bottom: 10px;
+}
+
+/* ---------- FORM STYLES ---------- */
+form#registerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Input Fields */
+input {
+  font-size: 1rem;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #f9fdfb;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+input:focus {
+  border-color: #2c7a5b;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(44, 122, 91, 0.2);
+  outline: none;
+}
+
+/* ---------- BUTTON ---------- */
+.btn {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn.primary {
+  background: #2c7a5b;
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background: #1e5b42;
+  transform: translateY(-2px);
+}
+
+/* ---------- LOGIN LINK ---------- */
+.container p {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.container a {
+  color: #2c7a5b;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.container a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- ANIMATION ---------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 600px) {
+  .container {
+    margin: 20px;
+    padding: 24px;
+  }
+
+  .container h2 {
+    font-size: 1.6rem;
+  }
+
+  input {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    font-size: 14px;
+  }
+}
